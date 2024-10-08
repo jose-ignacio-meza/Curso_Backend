@@ -1,0 +1,56 @@
+[
+     {
+          "id": 1,
+          "tittle": "Oreosa",
+          "description": "Galletitas de chocolate con relleno de vainilla",
+          "price": 20,
+          "thumbnail": "Foto Producto",
+          "code": 3,
+          "stock": 30
+     },
+     {
+          "id": 2,
+          "tittle": "Cerveza",
+          "description": "Bebida alcoholica a base de cebada",
+          "price": 40,
+          "thumbnail": "Foto Producto",
+          "code": 66,
+          "stock": 80
+     },
+     {
+          "id": 4,
+          "tittle": "Oreos",
+          "description": "Galletitas de chocolate con relleno de vainilla",
+          "price": 20,
+          "thumbnail": "Foto Producto",
+          "code": 3,
+          "stock": 30
+     },
+     {
+          "id": 5,
+          "tittle": "Paseo",
+          "description": "Galletitas crackers",
+          "price": 26,
+          "thumbnail": "Foto Producto",
+          "code": 6,
+          "stock": 20
+     },
+     {
+          "id": 6,
+          "tittle": "Pan",
+          "description": "Panificado",
+          "price": 15,
+          "thumbnail": "Foto Producto",
+          "code": 45,
+          "stock": 20
+     },
+     {
+          "id": 7,
+          "tittle": "Pizetas",
+          "description": "Panificados",
+          "price": 7,
+          "thumbnail": "Foto Producto",
+          "code": 21,
+          "stock": 60
+     }
+]
