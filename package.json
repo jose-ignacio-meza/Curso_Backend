@@ -1,0 +1,26 @@
+{
+  "name": "xit",
+  "type": "module",
+  "version": "1.0.0",
+  "main": "src/app.js",
+  "dependencies": {
+    "express": "^4.21.0",
+    "inherits": "^2.0.3",
+    "modules": "^0.4.0",
+    "nodemon": "^3.1.7",
+    "path": "^0.12.7",
+    "process": "^0.11.10",
+    "util": "^0.10.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Jose Ignacio Meza",
+  "license": "ISC",
+  "keywords": [],
+  "description": "",
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.7.4"
+  }
+}
