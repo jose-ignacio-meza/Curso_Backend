@@ -1,0 +1,1 @@
+const __dirname = "/api/"

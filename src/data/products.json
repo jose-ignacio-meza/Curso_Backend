@@ -1,0 +1,11 @@
+[
+     {
+          "id": 1,
+          "tittle": "Oreos",
+          "description": "Galletitas de chocolate con relleno de vainilla",
+          "price": 20,
+          "thumbnail": "Foto Producto",
+          "code": 3,
+          "stock": 30
+     }
+]
