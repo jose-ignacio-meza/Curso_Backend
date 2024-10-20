@@ -1,11 +1,85 @@
 [
      {
           "id": 1,
-          "tittle": "Oreos",
+          "tittle": "pan",
+          "description": "pan horneado tipo flautita",
+          "price": 20,
+          "code": 3,
+          "status": true,
+          "stock": 30,
+          "category": "panificados",
+          "thumbnail": [
+               "Foto 1",
+               "Foto 2"
+          ]
+     },
+     {
+          "id": 2,
+          "tittle": "oreo",
           "description": "Galletitas de chocolate con relleno de vainilla",
           "price": 20,
-          "thumbnail": "Foto Producto",
           "code": 3,
-          "stock": 30
+          "status": true,
+          "stock": 30,
+          "category": "galletitas",
+          "thumbnail": [
+               "Foto Producto"
+          ]
+     },
+     {
+          "id": 3,
+          "tittle": "yerba",
+          "description": "yerba hecha con palo",
+          "code": 8,
+          "price": 56,
+          "status": true,
+          "stock": 11,
+          "category": "yerbas",
+          "thumbnail": []
+     },
+     {
+          "id": 4,
+          "tittle": "palitos salados",
+          "description": "snack de palitos salados",
+          "code": 88,
+          "price": 26,
+          "status": true,
+          "stock": 32,
+          "category": "snack",
+          "thumbnail": [
+               "Foto 1",
+               "Foto 2"
+          ]
+     },
+     {
+          "id": 5,
+          "tittle": "pizza",
+          "description": "pizza para hornear",
+          "code": 44,
+          "price": 20,
+          "status": true,
+          "stock": 30,
+          "category": "panificados",
+          "thumbnail": [
+               "Foto 1",
+               "Foto 2",
+               "Foto 3"
+          ]
+     },
+     {
+          "id": 6,
+          "tittle": "osos de gomita",
+          "description": "gomitas de gelatina con forma de oso",
+          "code": 29,
+          "price": 20,
+          "status": true,
+          "stock": 3,
+          "category": "golosinas",
+          "thumbnail": [
+               "Foto 1",
+               "Foto 2",
+               "Foto 3",
+               "Foto 4"
+          ]
      }
 ]
