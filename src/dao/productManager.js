@@ -130,11 +130,14 @@ export class ProductManager{
             try {
                 await fs.promises.writeFile(ProductManager.#path, JSON.stringify(ProductManager.#products, null, 5), 'utf-8');
                 console.log("Producto agregado y guardado en el archivo");
+                return true
             } catch (err) {
                 console.error("Hubo un error al guardar el archivo:", err);
+                return false
             }
         } else {
             console.log(`No se encontró un producto con id ${id}.`);
+            return false
         }       
     }
 
