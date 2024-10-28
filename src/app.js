@@ -1,15 +1,29 @@
 import express from 'express'
 import Router from 'express'
-import {router as routerProducts} from './routes/productsRouter.js'
-import {router as routerCarts} from './routes/cartsRouter.js'
-
+import { router as routerProducts} from './routes/productsRouter.js'
+import { router as routerCarts} from './routes/cartsRouter.js'
+import { Server} from 'socket.io'
+import { engine } from 'express-handlebars'
+import { viewsRouter } from './routes/viewsRouter.js'
 
 const app=express()
-const server = app.listen(8080,()=>console.log('escuchando al puerto 8080'))
 
-app.use(express.json())
-app.use(express.urlencoded({extended:true}))
+app.use(express.json());
+app.use(express.urlencoded({extended:true}));
+app.use(express.static("./src/public"));
+//Configuracion de handlebars//
+app.engine("handlebars", engine())
+app.set("view engine", "handlebars")
+app.set("views", "./src/views")
 
+//Configuracion de rutas//
 app.use("/api/prducts",routerProducts)
 app.use("/api/carts",routerCarts)
+app.use("/", viewsRouter)
+
+const server = app.listen(8080,()=>console.log('escuchando al puerto 8080'))
+const io = new Server(server)
+
+
+
 

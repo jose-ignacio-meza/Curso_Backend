@@ -1,0 +1,32 @@
+<h2>Pagina de Products</h2>
+<div class="contenedorProductos">
+    {{#each products}}
+        <div class="tarjetaProducto">
+            <div class="contenedorTituloYCategoriaProducto">
+                <div class="tituloProducto"> {{tittle}}</div>
+                <div class="categoriaProducto"> Categoria: {{category}}</div>
+            </div>
+            {{#if thumbnail.[1]}}
+                {{#each thumbnail}}
+                    <div class="contenedorFotosProducto">
+                        <img src="/fotosProductos/{{this}}"/>
+                    </div>
+                {{/each}}
+            {{else}}
+                {{#if thumbnail.[0]}}
+                <div class="contenedorFotosProducto">
+                    <img src="/fotosProductos/{{thumbnail.[0]}}" alt="Foto Producto"/>
+                </div>
+                {{else}}
+                    <div class="contenedorFotosProducto">
+                        No hay foto
+                    </div>
+                {{/if}}
+            {{/if}}
+            <div class="contenedorDescripcionProducto">{{description}}</div>
+            <button onClick="verMas({{id}})"> Ver Mas</button>
+        </div>
+    {{/each}}
+</div>
+
+<script src="/js/products.js"></script>

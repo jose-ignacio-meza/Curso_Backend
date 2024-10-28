@@ -1,0 +1,42 @@
+.contenedorProductos{
+    display:flex;
+    flex-wrap:wrap;
+}
+.tarjetaProducto{
+    border: 1px solid black;
+    width:33%;
+    height:200px;
+    border-radius:15px;
+    background-color:white;
+    display:flex;
+    flex-direction:column;
+    justify-content: space-around;
+}
+
+.contenedorTituloYCategoriaProducto{
+    padding:2% 5%;
+    border-bottom:1px solid black;
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+}
+.tituloProducto{
+    color:black;
+    font-size:25px
+}
+.categoriaProducto{
+    background-color:#666;
+    color:white;
+    border-radius: 15px;
+    padding:1%
+}
+
+.contenedorFotosProducto{
+
+}
+
+.contenedorDescripcionProducto{
+    color:black;
+    font-size:19px;
+    padding-left:2%;
+}
