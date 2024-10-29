@@ -1,1 +1,42 @@
 <h2>Pagina de Home</h2>
+
+<div class="contenedorProductos">
+    {{#each products}}
+        <div class="tarjetaProducto">
+            <div class="contenedorTituloYCategoriaProducto">
+                <div class="tituloProducto"> {{tittle}}</div>
+                <div class="categoriaProducto"> Categoria: {{category}}</div>
+            </div>
+            {{#if thumbnail.[1]}}
+                {{#each thumbnail}}
+                    <div class="contenedorFotosProducto">
+                        <img src="/fotosProductos/{{this}}"/>
+                    </div>
+                {{/each}}
+            {{else}}
+                {{#if thumbnail.[0]}}
+                <div class="contenedorFotosProducto">
+                    <img src="/fotosProductos/{{thumbnail.[0]}}" alt="Foto Producto"/>
+                </div>
+                {{else}}
+                    <div class="contenedorFotosProducto">
+                        No hay foto
+                    </div>
+                {{/if}}
+            {{/if}}
+            <div class="contenedorDescripcionProducto">{{description}}</div>
+            <button style="margin-left:10%; width:80%; border-radius:15px;"><a class="enlace" href="/product/{{id}}">Ver Mas</a></button>
+        </div>
+    {{/each}}
+
+    <div class="" id="productosNuevos">
+
+    </div>
+    <div>
+        <button><a href="/">Ver nuevos productos</a></button>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/home.js"></script>

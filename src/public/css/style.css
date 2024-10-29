@@ -1,6 +1,18 @@
+*{
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+.enlace{
+    text-decoration:none;
+    color:black;
+}
+
 .contenedorProductos{
     display:flex;
     flex-wrap:wrap;
+    justify-content: space-evenly;
 }
 .tarjetaProducto{
     border: 1px solid black;

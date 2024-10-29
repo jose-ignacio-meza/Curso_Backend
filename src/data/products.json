@@ -70,5 +70,18 @@
                "Foto 3",
                "Foto 4"
           ]
+     },
+     {
+          "id": 7,
+          "tittle": "galletitas paseo",
+          "description": "galletitas cracker de 400 gramos",
+          "code": 89,
+          "price": 24,
+          "status": true,
+          "stock": 4,
+          "category": "galletitas",
+          "thumbnail": [
+               "Foto 1"
+          ]
      }
 ]

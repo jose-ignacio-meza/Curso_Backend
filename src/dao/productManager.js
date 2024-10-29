@@ -81,22 +81,6 @@ export class ProductManager{
         return this.#products[indice]
     }
 
-    //Busca un Producto por id
-    // static async getProductById(id){
-    //     let encontro= false
-    //     let products= await fs.promises.readFile(this.#path,{encoding:"utf-8"})
-
-    //     products.forEach(producto=>{
-    //         if(producto.id == id){
-    //             encontro=true
-    //             return console.log(`se encontro el producto es :"${producto.tittle}"`)
-    //         }
-    //     })
-    //     if (!encontro){
-    //         return console.error("Not found")
-    //     }
-    // }
-
     static async modifyProduct(id,product={}){
         //Verifico si existe
         let existe = ProductManager.#products.find(p=> p.id === id)
@@ -129,7 +113,7 @@ export class ProductManager{
             //Se actualiza el archivo products.json
             try {
                 await fs.promises.writeFile(ProductManager.#path, JSON.stringify(ProductManager.#products, null, 5), 'utf-8');
-                console.log("Producto agregado y guardado en el archivo");
+                console.log("Producto eliminado del archivo");
                 return true
             } catch (err) {
                 console.error("Hubo un error al guardar el archivo:", err);
