@@ -83,5 +83,31 @@
           "thumbnail": [
                "Foto 1"
           ]
+     },
+     {
+          "id": 8,
+          "tittle": "galletitas manaos",
+          "description": "galletitas rellenas sabor vainilla",
+          "code": 99,
+          "price": 22,
+          "status": true,
+          "stock": 4,
+          "category": "galletitas",
+          "thumbnail": [
+               "Foto 1"
+          ]
+     },
+     {
+          "id": 9,
+          "tittle": "galletitas lincoln",
+          "description": "galletitas tipo masitas sabor vainilla",
+          "code": 123,
+          "price": 29,
+          "status": true,
+          "stock": 4,
+          "category": "galletitas",
+          "thumbnail": [
+               "Foto 1"
+          ]
      }
 ]

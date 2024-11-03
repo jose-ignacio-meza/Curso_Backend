@@ -18,7 +18,7 @@ app.set("view engine", "handlebars")
 app.set("views", "./src/views")
 
 //Configuracion de rutas//
-app.use("/api/prducts",
+app.use("/api/products",
         (req,res,next)=>{
         req.io=io
         next()},

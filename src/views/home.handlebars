@@ -1,6 +1,6 @@
 <h2>Pagina de Home</h2>
 
-<div class="contenedorProductos">
+<div id="contenedorProductos" class="contenedorProductos">
     {{#each products}}
         <div class="tarjetaProducto">
             <div class="contenedorTituloYCategoriaProducto">
@@ -28,13 +28,6 @@
             <button style="margin-left:10%; width:80%; border-radius:15px;"><a class="enlace" href="/product/{{id}}">Ver Mas</a></button>
         </div>
     {{/each}}
-
-    <div class="" id="productosNuevos">
-
-    </div>
-    <div>
-        <button><a href="/">Ver nuevos productos</a></button>
-    </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>

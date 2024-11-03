@@ -15,8 +15,9 @@
     justify-content: space-evenly;
 }
 .tarjetaProducto{
+    margin:10px;
     border: 1px solid black;
-    width:33%;
+    width:30%;
     height:200px;
     border-radius:15px;
     background-color:white;
