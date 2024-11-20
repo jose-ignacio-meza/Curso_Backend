@@ -54,7 +54,7 @@ function crearTarjetaProducto(producto) {
   
     const enlace = document.createElement("a");
     enlace.classList.add("enlace");
-    enlace.href = `/product/${producto.id}`;
+    enlace.href = `/product/${producto._id}`;
     enlace.textContent = "Ver Mas";
   
     button.appendChild(enlace);

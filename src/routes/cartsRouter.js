@@ -1,37 +1,25 @@
 import {Router} from 'express'
-import { CartManager } from '../dao/cartManager.js'
-
+//import { CartManager } from '../dao/cartManager.js'
+import { CartMongoManager as CartManager } from '../dao/cartMongoManager.js'
 export const router = Router()
 
-await CartManager.loadProducts()
-await CartManager.loadCarts()
+//await CartManager.loadProducts()
+//await CartManager.loadCarts()
 
-router.get("/",(req,res)=>{
+router.get("/",async(req,res)=>{
     try{
-        res.status(200).send( console.log('hola desde el get cart'))
+        let carts= await CartManager.getCarts()
+        console.log('Carritos '+JSON.stringify(carts, null,5))
+        res.status(200).send( carts.docs)
     }catch(err){
         res.status(400).send('Hubo un error : '+err)
-    }
-})
-
-router.post("/", async(req,res)=>{
-    let {products}=req.body
-    if(!products){
-        res.status(400).send('se debe cargar un producto o varios')
-    }else{
-        try{
-            let result = await CartManager.addCart(products)
-            res.status(200).send('Se cargo correctamente el nuevo carrito')
-        }catch(err){
-            res.status(400).send('error al crear el nuevo carrito error: '+err)
-        }
     }
 })
 
 router.get("/:id",async (req,res)=>{
     let {id}=req.params
     try{   
-        let result= await CartManager.getCartById(Number(id))
+        let result= await CartManager.getCartById(id)
         console.log(result)
         if(result){
             res.status(200).send(result)
@@ -43,13 +31,27 @@ router.get("/:id",async (req,res)=>{
     }
 })
 
+router.post("/", async(req,res)=>{
+    let {products}=req.body
+    if(!products){
+        res.status(400).send('se debe cargar un producto o varios')
+    }else{
+        try{
+            let result = await CartManager.addCart(products)
+            res.status(200).send('Se cargo correctamente el nuevo carrito'+result)
+        }catch(err){
+            res.status(400).send('error al crear el nuevo carrito error: '+err)
+        }
+    }
+})
+
 router.post("/:cid/product/:pid", async(req,res)=>{
     let {cid,pid}= req.params
     let {quantity}= req.body
     try{
-        let result= await CartManager.addProduct(Number(cid),Number(pid),quantity)
+        let result = await CartManager.addProduct(cid,pid,quantity)
         if (!result){
-            res.status(400).send('No se encontro el cart con id :'+cid)
+            res.status(400).send('No se encontro el cart o producto con los id indicados')
         }else{
             res.status(200).send('Se agrego correctamente el producto con id :'+pid+' en el carro con id :'+cid)
         }

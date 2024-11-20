@@ -2,6 +2,7 @@ console.log("conectado el js")
 
 
 function agregarAlCart(id, tittle){
+    
     swal.fire({
         title: "Agregar al carro",
         text: "Se va a agregar al carro "+tittle,

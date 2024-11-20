@@ -1,11 +1,17 @@
-<h2>Pagina de Home</h2>
-
+<h2>Pagina de Home</h2></br>
+<h4>Filtrar por categoria</h4>
+<div class="categorias">
+    <h5><a href="/?category=golosinas">Golosinas</a></h5>
+    <h5><a href="/?category=panificados">Panificados</a></h5>
+    <h5><a href="/?category=snack">snacks</a></h5>
+    <h5><a href="/">Todo</a></h5>
+</div>
 <div id="contenedorProductos" class="contenedorProductos">
     {{#each products}}
         <div class="tarjetaProducto">
             <div class="contenedorTituloYCategoriaProducto">
-                <div class="tituloProducto"> {{tittle}}</div>
-                <div class="categoriaProducto"> Categoria: {{category}}</div>
+                <div class="tituloProducto"> {{this.tittle}}</div>
+                <div class="categoriaProducto"> Categoria: {{this.category}}</div>
             </div>
             {{#if thumbnail.[1]}}
                 {{#each thumbnail}}
@@ -25,9 +31,28 @@
                 {{/if}}
             {{/if}}
             <div class="contenedorDescripcionProducto">{{description}}</div>
-            <button style="margin-left:10%; width:80%; border-radius:15px;"><a class="enlace" href="/product/{{id}}">Ver Mas</a></button>
+            <button style="margin-left:10%; width:80%; border-radius:15px;"><a class="enlace" href="/product/{{_id}}">Ver Mas</a></button>
         </div>
     {{/each}}
+    <div class="buttonsPagination">
+        <div class="buttonPagination">
+            {{#if hasPrevPage}}
+                <button><a href="/?page={{prevPage}}">Back-Page</a></button>
+            {{else}}
+                <button disabled="true">Back-Page</button>
+            {{/if}}
+        </div>
+        <div class="buttonPagination">
+            {{#if hasNextPage}}
+                <button><a href="/?page={{nextPage}}">Next-Page </a></button>
+            {{else}}
+                <button disabled="true">Next-Page</button>
+            {{/if}}    
+        </div>
+        <div class="buttonPagination">
+            <button><a href="/?page={{totalPages}}{{#if category}}&category={{category}}{{/if}}">Last Page</a></button>
+        </div>
+    </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
