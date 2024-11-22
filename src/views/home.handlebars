@@ -1,16 +1,19 @@
 <h1><a href="/">Pagina de Home</a> </h1></br>
-<h2>Filtrar por categoria</h2>
+<h2>Filtrar por categorias:</h2>
 <div class="categorias">
-    <h4><a href="/?category=golosinas">Golosinas</a></h4>
-    <h4><a href="/?category=panificados">Panificados</a></h4>
-    <h4><a href="/?category=snack">snacks</a></h4>
-    <h4><a href="/">Todo</a></h4>
+    <h4 class="unaCategoria"><a href="/?category=golosinas">Golosinas</a></h4>
+    <h4 class="unaCategoria"><a href="/?category=panificados">Panificados</a></h4>
+    <h4 class="unaCategoria"><a href="/?category=snack">snacks</a></h4>
+    <h4 class="unaCategoria"><a href="/">Ver Todo</a></h4>
 </div>
-<div> 
-    <h5>Ordernar por precio</h5>
-    <div>
-        <a href="/?sort=1"> Asc </a>
-        <a href="/?sort=-1"> Desc </a>
+<div style="margin-top:30px">
+    <div class="ordenamiento"> 
+        <h4>Ordernar por precio -></h4>
+        <h4 class="unaCategoria" style="margin-right: 10px;"><a href="/?sort=1"> Ascendente </a></h4>
+        <h4 class="unaCategoria"><a href="/?sort=-1"> Descendente </a></h4>
+    </div>
+    <div style="display:flex; margin-top:20px;">
+        <h4 class="unaCategoria" ><a href="/?stock=true">Ver Productos en stock</a></h4>
     </div>
 </div>
 <div id="contenedorProductos" class="contenedorProductos">
