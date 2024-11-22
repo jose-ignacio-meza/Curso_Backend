@@ -1,0 +1,20 @@
+<div class="contenedorPagina">
+    <div class="contenedorCarro">
+        <div class="tituloCarro"> Carrito {{cid}} </div></br>
+        <ul class="contenedorProductosCarro">
+        {{#each products}}
+            <li class="contenedorProductoCarro">
+                <div class="tituloProductoCarro">{{id.tittle}}</div>
+                <div class="precioProductoCarro">{{id.price}}</div> 
+            <div class="verMasCarro">
+                <a href="/product/{{this.id._id}}">Ver Más</a>
+            </div>
+            </li>
+        {{/each}}
+        </ul>
+
+        <div>
+            <a href="/">Home</a>
+        </div>
+    </div>
+</div>

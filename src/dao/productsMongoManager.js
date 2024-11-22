@@ -3,12 +3,21 @@ import { productsModel } from "./models/productModel.js"
 
 export class ProductsMongoManager{
     
-    static async getProducts(page=1, limit=3, category=''){
+    static async getProducts(page=1, limit=10, category='', sort, stock=false){
         const query = category ? { category } : {};
-        return await productsModel.paginate(
-            query,   // filtro válido de mongodb, por ej: {code:{$gt:2500}}
-            {page, limit, lean:true, sort:{code:1}}
-        )
+        if (stock) {
+            query.stock = { $gt: 0 }; 
+        }
+        const options = {page, limit, lean:true, sort:{}}
+        
+        console.log('el ordenamiento '+sort)
+        if ((sort == 1)||(sort == -1)){
+            options.sort= {'price':sort};   
+        }else{
+            console.log("se ingreso mal el parametro de ordenamiento, el cual debe ser asc o desc")
+        }
+        
+        return await productsModel.paginate(query,options)
     }
 
     static async getProductById(id){

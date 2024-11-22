@@ -75,3 +75,43 @@
 .buttonPagination a:visited{
     color: black
 }
+
+.contenedorPagina{
+    margin-top:30px;
+    display: flex;
+    justify-content: center;
+}
+
+.contenedorCarro{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: 1px solid black;
+    border-radius: 15px;;
+}
+
+.contenedorProductosCarro{
+    width: 90%;
+    margin:0% 2%
+}
+
+.contenedorProductoCarro{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border-bottom: 1px solid black ;
+}
+
+.tituloProductoCarro{
+    font-size: 15px;
+    padding:2px 4px;
+}
+
+.precioProductoCarro{
+    font-size: 15px;
+    padding:2px 4px;
+}
+.verMasCarro{
+    align-items: end;
+}

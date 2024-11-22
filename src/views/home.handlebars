@@ -1,10 +1,17 @@
-<h2>Pagina de Home</h2></br>
-<h4>Filtrar por categoria</h4>
+<h1><a href="/">Pagina de Home</a> </h1></br>
+<h2>Filtrar por categoria</h2>
 <div class="categorias">
-    <h5><a href="/?category=golosinas">Golosinas</a></h5>
-    <h5><a href="/?category=panificados">Panificados</a></h5>
-    <h5><a href="/?category=snack">snacks</a></h5>
-    <h5><a href="/">Todo</a></h5>
+    <h4><a href="/?category=golosinas">Golosinas</a></h4>
+    <h4><a href="/?category=panificados">Panificados</a></h4>
+    <h4><a href="/?category=snack">snacks</a></h4>
+    <h4><a href="/">Todo</a></h4>
+</div>
+<div> 
+    <h5>Ordernar por precio</h5>
+    <div>
+        <a href="/?sort=1"> Asc </a>
+        <a href="/?sort=-1"> Desc </a>
+    </div>
 </div>
 <div id="contenedorProductos" class="contenedorProductos">
     {{#each products}}
@@ -30,6 +37,7 @@
                     </div>
                 {{/if}}
             {{/if}}
+            <div class="contenedorPrecioProducto">{{price}}</div>
             <div class="contenedorDescripcionProducto">{{description}}</div>
             <button style="margin-left:10%; width:80%; border-radius:15px;"><a class="enlace" href="/product/{{_id}}">Ver Mas</a></button>
         </div>
@@ -50,7 +58,7 @@
             {{/if}}    
         </div>
         <div class="buttonPagination">
-            <button><a href="/?page={{totalPages}}{{#if category}}&category={{category}}{{/if}}">Last Page</a></button>
+            <button><a href="/?page={{totalPages}}{{#if category}}&category={{category}}{{/if}}{{#if sort}}&sort={{sort}}{{/if}}">Last Page</a></button>
         </div>
     </div>
 </div>
