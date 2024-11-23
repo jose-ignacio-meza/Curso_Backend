@@ -3,6 +3,7 @@ import {Router} from 'express'
 import { CartMongoManager as CartManager } from '../dao/cartMongoManager.js'
 import { isValidObjectId } from 'mongoose'
 import { cartModel } from '../dao/models/cartModel.js'
+import { productsModel } from '../dao/models/productModel.js'
 export const router = Router()
 
 //await CartManager.loadProducts()
@@ -39,8 +40,18 @@ router.post("/", async(req,res)=>{
         res.status(400).send('se debe cargar un producto o varios')
     }else{
         try{
-            let result = await CartManager.addCart(products)
-            res.status(200).send('Se cargo correctamente el nuevo carrito'+result)
+            let existen= true
+            for (let p of products) {
+                const comprobacion = await productsModel.findById(p.id); 
+                if (!comprobacion) {
+                    existen = false;
+                    return res.status(401).send('No existe un producto cargado con el id ' + p.id);
+                }
+            }
+            if(existen){
+                let result = await CartManager.addCart(products)
+                res.status(200).send('Se cargo correctamente el nuevo carrito'+result)
+            }
         }catch(err){
             res.status(400).send('error al crear el nuevo carrito error: '+err)
         }
@@ -53,11 +64,21 @@ router.put("/:cid", async (req,res)=>{
     let {products} = req.body
     if (products.length >0){
         try{
-            let result = await CartManager.actualizarProducts(cid,products)
-            if(result){
-                res.status(200).send('Se actualizo correctamente el carrito con id: '+cid+' con los productos '+JSON.stringify(products))
-            }else{
-                res.status(401).send('No existe un carrito con el id '+cid)
+            let existen= true
+            for (let p of products) {
+                const comprobacion = await productsModel.findById(p.id); 
+                if (!comprobacion) {
+                    existen = false;
+                    return res.status(401).send('No existe un producto cargado con el id ' + p.id);
+                }
+            }
+            if(existen){ 
+                let result = await CartManager.actualizarProducts(cid,products)
+                if(result){
+                    res.status(200).send('Se actualizo correctamente el carrito con id: '+cid+' con los productos '+JSON.stringify(products))
+                }else{
+                    res.status(401).send('No existe un carrito con el id '+cid)
+                }
             }
         }catch(err){
             console.log('Error : '+err.message)
