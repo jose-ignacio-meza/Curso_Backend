@@ -3,7 +3,7 @@ import paginate from "mongoose-paginate-v2"
 
 const productSchema = new mongoose.Schema(
     {
-        title: String,
+        tittle: String,
         description: String,
         code: {
             type: Number,

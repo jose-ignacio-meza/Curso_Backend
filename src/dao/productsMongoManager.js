@@ -10,7 +10,6 @@ export class ProductsMongoManager{
         }
         const options = {page, limit, lean:true, sort:{}}
         
-        console.log('el ordenamiento '+sort)
         if ((sort == 1)||(sort == -1)){
             options.sort= {'price':sort};   
         }else{
@@ -40,7 +39,7 @@ export class ProductsMongoManager{
 
     static async addProduct(product={}){
         //Validaciones
-        if(!product.tittle || !product.description ||  !product.code || !product.price || !product.status || !product.stock || !product.category){
+        if(!product.tittle || !product.description ||  !product.code || !product.price || !product.status || product.stock === undefined || !product.category){
             console.log('Faltan datos en el objeto')
             return false 
         }

@@ -4,12 +4,11 @@
     padding: 0px;
 }
 
-a{
+a, a:visited{
     text-decoration: none;
-}
-a:visited{
     color:black;  
 }
+
 .categorias{
     width: 100%;
     margin-top:15px;

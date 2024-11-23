@@ -16,7 +16,7 @@ viewsRouter.get("/", async(req,res)=>{
     try{
         let {docs:products, totalPages, hasNextPage, hasPrevPage, prevPage, nextPage}= await ProductsManager.getProducts(page,limit,category,sortOption,stockOption)
         res.render("home",
-            {products,totalPages, hasNextPage, hasPrevPage, prevPage, nextPage,category})
+            {products,totalPages, hasNextPage, hasPrevPage, prevPage, nextPage,category,stockOption,page})
     }catch(err){
         res.status(401).send(console.log('Error al cargar productos, error:'+err))
     }

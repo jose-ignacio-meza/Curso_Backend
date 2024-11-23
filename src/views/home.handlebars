@@ -4,13 +4,15 @@
     <h4 class="unaCategoria"><a href="/?category=golosinas">Golosinas</a></h4>
     <h4 class="unaCategoria"><a href="/?category=panificados">Panificados</a></h4>
     <h4 class="unaCategoria"><a href="/?category=snack">snacks</a></h4>
+    <h4 class="unaCategoria"><a href="/?category=infusion">infusiones</a></h4>
+    <h4 class="unaCategoria"><a href="/?category=galletitas">Galletitas</a></h4>
     <h4 class="unaCategoria"><a href="/">Ver Todo</a></h4>
 </div>
 <div style="margin-top:30px">
     <div class="ordenamiento"> 
         <h4>Ordernar por precio -></h4>
-        <h4 class="unaCategoria" style="margin-right: 10px;"><a href="/?sort=1"> Ascendente </a></h4>
-        <h4 class="unaCategoria"><a href="/?sort=-1"> Descendente </a></h4>
+        <h4 class="unaCategoria" style="margin-right: 10px;"><a href="/?sort=1{{#if page}}&page={{page}}{{/if}}{{#if category}}&category={{category}}{{/if}}{{#if sort}}&sort={{sort}}{{/if}}{{#if stockOption}}&stock=true{{/if}}"> Ascendente </a></h4>
+        <h4 class="unaCategoria">                            <a href="/?sort=-1{{#if page}}&page={{page}}{{/if}}{{#if category}}&category={{category}}{{/if}}{{#if sort}}&sort={{sort}}{{/if}}{{#if stockOption}}&stock=true{{/if}}"> Descendente </a></h4>
     </div>
     <div style="display:flex; margin-top:20px;">
         <h4 class="unaCategoria" ><a href="/?stock=true">Ver Productos en stock</a></h4>
@@ -48,20 +50,20 @@
     <div class="buttonsPagination">
         <div class="buttonPagination">
             {{#if hasPrevPage}}
-                <button><a href="/?page={{prevPage}}">Back-Page</a></button>
+                <button><a href="/?page={{prevPage}}{{#if category}}&category={{category}}{{/if}}{{#if sort}}&sort={{sort}}{{/if}}{{#if stockOption}}&stock=true{{/if}}">Back-Page</a></button>
             {{else}}
                 <button disabled="true">Back-Page</button>
             {{/if}}
         </div>
         <div class="buttonPagination">
             {{#if hasNextPage}}
-                <button><a href="/?page={{nextPage}}">Next-Page </a></button>
+                <button><a href="/?page={{nextPage}}{{#if category}}&category={{category}}{{/if}}{{#if sort}}&sort={{sort}}{{/if}}{{#if stockOption}}&stock=true{{/if}}">Next-Page </a></button>
             {{else}}
                 <button disabled="true">Next-Page</button>
             {{/if}}    
         </div>
         <div class="buttonPagination">
-            <button><a href="/?page={{totalPages}}{{#if category}}&category={{category}}{{/if}}{{#if sort}}&sort={{sort}}{{/if}}">Last Page</a></button>
+            <button><a href="/?page={{totalPages}}{{#if category}}&category={{category}}{{/if}}{{#if sort}}&sort={{sort}}{{/if}}{{#if stockOption}}&stock=true{{/if}}">Last Page</a></button>
         </div>
     </div>
 </div>

@@ -25,7 +25,6 @@ router.get("/",async(req,res)=>{
 router.post("/", async(req,res)=>{
     let {tittle, description, code, price, stock, category,thumbnail}=req.body
     let product= {tittle:tittle,description:description,code:code, price:price, status:true, stock:stock, category:category, thumbnail:thumbnail}
-    
     try{
         let nuevoProducto= await ProductsManager.addProduct(product)
         if(!nuevoProducto){

@@ -62,8 +62,8 @@ function crearTarjetaProducto(producto) {
   
     return tarjetaDiv;
   }
-
-socket.on("nuevoProducto", product=>{
+//fUNCION COMENTADA PARA EVITAR QUE SE ROMPA LA VISTA AL CARGAR DE FORMA FORZADA UN ELEMENTO AL LISTADO
+/*socket.on("nuevoProducto", product=>{
     const contenedorTarjetas = document.getElementById("contenedorProductos");
     if (contenedorTarjetas) {
         const nuevaTarjeta = crearTarjetaProducto(product)
@@ -77,7 +77,7 @@ socket.on("nuevoProducto", product=>{
     // contenedor.textContent= product.tittle
     // console.log(product)
     // location.reload();
-})
+})*/
 
 function VerMas(){
 
