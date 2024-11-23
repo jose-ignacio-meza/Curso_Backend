@@ -94,16 +94,22 @@ router.put("/:cid/product/:pid", async (req,res)=>{
     if((!isValidObjectId(cid)) || (!isValidObjectId(pid))){
         res.status(401).send(console.log('El id del carro o del producto no es valido'))
     }else{
+    
         try{
-            let result= await CartManager.actualizarProductQuantity(cid,pid,quantity)
-            if(result === -1){
-                res.status(400).send('No se pudo actualizar el producto ya que no se encuentra en el carrito')
-            }else{
-                if(result){
-                    res.status(200).send('Producto actualizado')
+            let existe = await productsModel.findById(pid)
+            if(existe){
+                let result= await CartManager.actualizarProductQuantity(cid,pid,quantity)
+                if(result === -1){
+                    res.status(400).send('No se pudo actualizar el producto ya que no se encuentra en el carrito')
                 }else{
-                    res.status(400).send('No se pudo actualizar el producto porque no existe el carrito')
+                    if(result){
+                        res.status(200).send('Producto actualizado')
+                    }else{
+                        res.status(400).send('No se pudo actualizar el producto porque no existe el carrito')
+                    }
                 }
+            }else{
+                return res.status(401).send('No existe un producto cargado con el id ' + pid); 
             }
         }catch(err){
             res.status(400).send(console.log('Error : '+err.message))
@@ -116,15 +122,20 @@ router.post("/:cid/product/:pid", async(req,res)=>{
     let {cid,pid}= req.params
     let {quantity}= req.body
     try{
-        let result = await CartManager.addProduct(cid,pid,quantity)
-        if(result === null){
-            res.status(400).send('No existe un cart o un producto con ese id')
-        }else{
-            if (!result){
-                res.status(400).send('No se encontro el cart o producto con los id indicados')
+        let existe = await productsModel.findById(pid)
+        if(existe){
+            let result = await CartManager.addProduct(cid,pid,quantity)
+            if(result === null){
+                res.status(400).send('No existe un cart o un producto con ese id')
             }else{
-                res.status(200).send('Se agrego correctamente el producto con id :'+pid+' en el carro con id :'+cid)
+                if (!result){
+                    res.status(400).send('No se encontro el cart o producto con los id indicados')
+                }else{
+                    res.status(200).send('Se agrego correctamente el producto con id :'+pid+' en el carro con id :'+cid)
+                }
             }
+        }else{
+            return res.status(401).send('No existe un producto cargado con el id ' + pid);
         }
     }catch(err){
         res.status(400).send('No se pudo cargar el producto en el carro por el error :'+err)
@@ -137,8 +148,7 @@ router.delete("/:cid/product/:pid", async(req,res)=>{
     try{
         if(!isValidObjectId(cid)){
             res.status(400).send('No es valido el id del carrito')
-        }else
-        if(!isValidObjectId(pid)){
+        }else if(!isValidObjectId(pid)){
             res.status(400).send('No es valido el id del producto')
         }else{
             let result= await CartManager.deleteProduct(cid,pid)
